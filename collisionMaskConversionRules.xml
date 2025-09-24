@@ -1,0 +1,342 @@
+<collisionMaskUpdater>
+    <conversionRules>
+        <rule maskOld="16779264"><!-- Bits: 11, 24          WoodUnloadTrigger exactFillRootNode -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="TREE" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="1048576"><!-- Bits: 20      PlayerTrigger -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="PLAYER" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="16777216"><!-- Bits: 24      BaleTrigger -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="DYNAMIC_OBJECT" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="268435456"><!-- Bits: 28      TriggerAnimal -->
+            <output isTrigger="true" >
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="ANIMAL" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="2109442"><!-- Bits: 1, 12, 13, 21   BigBag VEHICLE, DYNAMIC_OBJECT-->
+            <output preset="VEHICLE">  <!-- VEHICLE and DYNAMIC_OBJECT should be disjunct now, only set VEHICLE-->
+            </output>
+        </rule>
+        <rule maskOld="2109444"><!-- Bits: 1, 2, 12, 13, 21   l180HHighTipShovel colPartNoTipAny -->
+            <output preset="VEHICLE">
+                <mask>
+                    <withoutFlag name="TERRAIN_DELTA" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="1"><!-- Bits: 0       testChainsawHolder.i3d -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="16791586"><!-- Bits: 1, 5, 11, 12, 13, 24        Tree -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="TREE" />
+                    <flag name="AI_BLOCKING" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="8"><!-- Bits: 3   STATIC_OBJECTS -->  <!-- npc.i3d -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="2048"><!-- Bits: 11  Tree move trigger -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="TREE" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="3145728"> <!-- Bits: 20, 21  InfoTrigger Player + Vehicle -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="VEHICLE" />
+                    <flag name="PLAYER" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="33554432"><!-- Bits: 25      AITrafficCollision -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="TRAFFIC_VEHICLE_BLOCKING" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="269484032"><!-- Bits: 20, 28  Animal + Trigger Animal -->  <!-- cattleCalf.i3d -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="ANIMAL" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="2109464"><!-- Bits: 3, 4, 12, 13, 21 --> <!-- jump320_main_component1|jump320_vis|movingParts|rotPart|collisions|colPart02 -->
+            <output preset="VEHICLE">
+            </output>
+        </rule>
+        <rule maskOld="134217728"><!-- Bits: 27  TriggerFork -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="VEHICLE_FORK" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="12290"><!-- Bits: 1, 12, 13 strawberriesBoxPallet_main_component1|pallet_vis|content|strawberriesBox1|strawberriesBox1Tension -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="DYNAMIC_OBJECT" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="2147483648"> <!-- Bits: 31  WATER -->
+            <output>
+                <group>
+                    <flag name="WATER" />
+                </group>
+                <mask value="1"/>
+            </output>
+        </rule>
+        <rule maskOld="1064960"><!-- Bits: 14, 20      Player + Player trigger WoodSellStation|UnloadingStation|playerSellTrigger -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="PLAYER" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="14591"> <!-- Bits: 0, 1, 2, 3, 4, 5, 6, 7, 11, 12, 13  shop.i3d extra|floorCol -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="8194"><!-- Bits: 1, 13    mks32.i3d mks32_main_component1|mks32_vis|attachable|support|colPart -->
+            <output preset="VEHICLE">
+            </output>
+        </rule>
+        <rule maskOld="8196"><!-- Bits: 2, 13    mks32.i3d mks32_main_component1|mks32_vis|attachable|support|colPart -->
+            <output preset="VEHICLE">
+            </output>
+        </rule>
+        <rule maskOld="30736">   <!-- Bits: 4, 11, 12, 13, 14    maus5.i3d maus5_feederLeft_component3|maus5|maus5FeederLeftCol03 -->
+            <output preset="VEHICLE">
+            </output>
+        </rule>
+        <rule maskOld="16781314"><!-- Bits: 1, 12, 24   bigBagPallet.i3d bigBagPallet_main_component1|collisions|colSupport1 -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="DYNAMIC_OBJECT" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="223"> <!-- Bits: 0, 1, 2, 3, 4, 6, 7     trainSystem/crossing.i3d crossing1|collision -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="16781578"> <!-- Bits: 1, 3, 8, 12, 24    bakeryBoxPallet_component1|pallet_vis|collisions|floorCollision01  -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="DYNAMIC_OBJECT" />
+                </group>
+                <mask>
+                    <flag name="TERRAIN" />
+                    <flag name="STATIC_OBJECT" />
+                    <flag name="VEHICLE" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="1075838976"> <!-- Bits: 21, 30      TRIGGER_VEHICLE + FILLABLE -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="FILLABLE" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="268517376"> <!-- Bits: 14, 16, 28  horse_main_component1|proxy -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="ANIMAL" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="2109440"> <!--  Bits: 12, 13, 21  frontloaderManureGrab_grab_component2 -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="VEHICLE" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="16777224"> <!-- Bits: 3, 24 pl75_main_component1|damcon_vis|planter|palletTrigger  -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="DYNAMIC_OBJECT" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="262367"> <!-- Bits: 0, 1, 2, 3, 4, 6, 7, 18 testMap/bin/map/placeables/sellStation/sellStation.i3d SellStation|unloadingStation|collision -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="134225922"> <!-- Bits: 1, 13, 27   FORK manitou/m504/m504.i3d m504_fork_component3|tineHolderPhy|tineLeftPhyRot|tineLeftPhy|tineCollisionLeft -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="VEHICLE" />
+                    <flag name="VEHICLE_FORK" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="3219456"> <!-- Bits: 13, 16, 20, 21  domesticated/horse/horse.i3d horse_main_component1 -->
+            <output preset="DEFAULT">
+                <group>
+                    <flag name="ANIMAL" />
+                </group>
+            </output>
+        </rule>
+        <rule maskOld="2097152"> <!-- Bits: 21  TRIGGER VEHICLE animalHusbandries/chickenBarnSmall/chickenBarnSmall.i3d palletAreas|palletTrigger -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="VEHICLE" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="1073741824"> <!-- Bits: 30  bigBag_main_component1|functionalNodes|fillTrigger -->
+            <output isTrigger="true" >
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="FILLABLE" />
+                </mask>
+            </output>
+            <output>
+                <group>
+                    <flag name="FILLABLE" />
+                </group>
+                <mask>
+                    <flag name="TRIGGER" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="134225920"> <!-- Bits: 13, 27 m504_fork_component3|tineHolderPhy|tineLeftPhyRot|tineLeftPhy|dynamicMountTriggerLeft -->
+            <output preset="DEFAULT">
+                <group>
+                    <!-- <flag name="TRIGGER" /> -->  <!-- not actually a trigger, not sure why it's called one then ?! -->
+                    <flag name="VEHICLE_FORK" />
+                </group>
+                <mask>
+                    <withoutFlag name="TERRAIN_DELTA" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="18874368"> <!-- Bits: 21, 24 hdht52_main_component1|hdht52_vis|dynamicMount|dynamicMountTrigger  -->
+            <output>
+                <group>
+                    <flag name="TRIGGER" />
+                </group>
+                <mask>
+                    <flag name="DYNAMIC_OBJECT" />
+                </mask>
+            </output>
+        </rule>
+        <rule maskOld="524288"> <!-- Bits: 19  GROUND_TIP_BLOCKING chickenBarnSmall|collisions|tipCollision-->
+            <output>
+                <group>
+                    <flag name="PLACEMENT_BLOCKING" />
+                    <flag name="GROUND_TIP_BLOCKING" />
+                </group>
+                <mask value="1"/>
+            </output>
+        </rule>
+        <rule maskOld="8212"> <!-- Bits: 2, 4, 13 wheelLoaderShovel_main_component1|collisions|colPart5_bottom  -->
+            <output preset="VEHICLE">
+            </output>
+        </rule>
+        <rule maskOld="255">
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="247">
+            <output preset="PLACEABLE_BUILDING">
+            </output>
+        </rule>
+        <rule maskOld="2">   <!-- suspensionTestingObjects|tipAnyCollision|rampBox -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="9">   <!-- Bits: 0, 3 -->
+            <output>
+                <group>
+                    <flag name="GROUND_TIP_BLOCKING" />
+                </group>
+                <mask value="1"/>
+            </output>
+        </rule>
+        <rule maskOld="15">   <!-- suspensionTestingObjects|rampLong|rampUp1 -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="131072">   <!-- Bits: 17     chickenBarnBig chickenBarnBig|navigationRootNode|walkingPlane -->
+            <output>
+                <group>
+                    <flag name="ANIMAL_POSITIONING"/>
+                </group>
+                <mask value="1"/>
+            </output>
+        </rule>
+        <rule maskOld="4349">   <!--  Bits: 0, 2, 3, 4, 5, 6, 7, 12     premiumExpansion/bin/map/map.i3d gameplay|mapBoundaries|mapBoundaryE01 -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+        <rule maskOld="262391">  <!--  Bits: 0, 1, 2, 4, 5, 6, 7, 18 (AI_DRIVEABLE)  -->
+            <output preset="STATIC_OBJECT">
+            </output>
+        </rule>
+    </conversionRules>
+</collisionMaskUpdater>
