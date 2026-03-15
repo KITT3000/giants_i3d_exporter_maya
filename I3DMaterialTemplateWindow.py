@@ -75,8 +75,17 @@ class materialTemplatesWin():
         self._xmlElementName = xmlElementName
         self._defaultTexturesUI = defaultTexturesUI
 
-        self._gamePath = I3DExporter.I3DGetGamePath()
-        self._materialTemplatesXML = templateXmlFilename.replace('$', self._gamePath + '/')
+        self._gamePath = I3DExporter.I3DGetGamePath().replace('\\', '/')
+        # Jeśli ścieżka zaczyna się od $, podmień na pełną. Jeśli nie, a jest relatywna, dodaj folder gry.
+        temp_xml = templateXmlFilename
+        if temp_xml.startswith('$'):
+            self._materialTemplatesXML = temp_xml.replace('$', self._gamePath + '/')
+        elif not ":" in temp_xml: # jeśli nie ma litery dysku, dodaj gamePath
+            self._materialTemplatesXML = (self._gamePath.rstrip('/') + '/' + temp_xml.lstrip('/')).replace('//', '/')
+        else:
+            self._materialTemplatesXML = temp_xml
+        
+        self._materialTemplatesXML = self._materialTemplatesXML.replace('\\', '/')
         self._diffuse,self._normal,self._specular = self.__getDefaultTextures()
         self._ui_diffuseState = False # is _diffuse already changed by user or not
 
@@ -234,6 +243,7 @@ class materialTemplatesWin():
                     self._materialTemplatesXML = str( mResult )
                     # update gamePath in case user selected different materialTemplates.xml from different folder
                     self._gamePath = mResult.split("/data/")[0]
+                    I3DExporter.I3DSetGamePath(self._gamePath)
                     print("Game Path: {}".format(self._gamePath))
                     print("XML: {}".format(self._materialTemplatesXML))
                     #
@@ -359,9 +369,10 @@ class materialTemplatesWin():
         return m_str
 
     def __getDefaultTextures(self):
-        defaultDiffuse  = "{}/data/shared/white_diffuse.png".format(self._gamePath)
-        defaultNormal   = "{}/data/shared/default_normal.png".format(self._gamePath)
-        defaultSpecular = "{}/data/shared/default_vmask.png".format(self._gamePath)
+        gPath = self._gamePath if self._gamePath else ""
+        defaultDiffuse  = (gPath.rstrip('/') + "/data/shared/white_diffuse.png").replace('//', '/')
+        defaultNormal   = (gPath.rstrip('/') + "/data/shared/default_normal.png").replace('//', '/')
+        defaultSpecular = (gPath.rstrip('/') + "/data/shared/default_vmask.png").replace('//', '/')
 
         if not os.path.exists(defaultDiffuse):
             ddsFile = defaultDiffuse.replace(".png", ".dds")
